@@ -1,0 +1,55 @@
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Etudiant</h1>
+</div>
+<div class="card mb-40">
+    <div class="card-body">
+        <h5 class="card-title border-bottom border-italia">
+            <i class="fa fa-search"></i> Dettaglio
+        </h5>
+        <form #editForm="ngForm" [ngClass]="{'was-validated': formValid!=null}">
+            <div class="row mt-40 justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="classe" [(ngModel)]="item.classe" name="classe" #classe="ngModel" >
+                        <label [className]="item.classe? 'active' : ''" for="classe">Classe</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" [(ngModel)]="item.email" name="email" #email="ngModel" >
+                        <label [className]="item.email && item.email.length > 0 ? 'active' : ''" for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nom" [(ngModel)]="item.nom" name="nom" #nom="ngModel" >
+                        <label [className]="item.nom && item.nom.length > 0 ? 'active' : ''" for="nom">Nom</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="password" [(ngModel)]="item.password" name="password" #password="ngModel" >
+                        <label [className]="item.password && item.password.length > 0 ? 'active' : ''" for="password">Password</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="prenom" [(ngModel)]="item.prenom" name="prenom" #prenom="ngModel" >
+                        <label [className]="item.prenom && item.prenom.length > 0 ? 'active' : ''" for="prenom">Prenom</label>
+                    </div>
+                    <!-- RELATIONS -->
+                    <h2 class="mb-20 mt-40">Relazioni</h2>
+
+                    <label for="classe">Classe</label>
+                    <select name="etud_class" id="etud_class" [(ngModel)]="item.etud_class" class="form-control" #etud_class="ngModel"  required>
+                        <option disabled selected>Seleziona una opzione</option>                                                    
+                        <option *ngFor="let item of listEtud_class" [value]="item._id">{{item._id}}</option>
+                    </select>
+                        <div class="invalid-feedback">Valore obbligatorio</div>
+
+                    
+        
+
+                    <!-- BUTTON BAR -->
+                    <div class="mt-40">
+                        <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Salva</button>
+                        <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Torna alla lista</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

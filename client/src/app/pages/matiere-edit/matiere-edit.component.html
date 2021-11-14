@@ -1,0 +1,30 @@
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Matiere</h1>
+</div>
+<div class="card mb-40">
+    <div class="card-body">
+        <h5 class="card-title border-bottom border-italia">
+            <i class="fa fa-search"></i> Dettaglio
+        </h5>
+        <form #editForm="ngForm" [ngClass]="{'was-validated': formValid!=null}">
+            <div class="row mt-40 justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nom_mat" [(ngModel)]="item.nom_mat" name="nom_mat" #nom_mat="ngModel" >
+                        <label [className]="item.nom_mat && item.nom_mat.length > 0 ? 'active' : ''" for="nom_mat">Nom_mat</label>
+                    </div>
+
+
+        
+
+                    <!-- BUTTON BAR -->
+                    <div class="mt-40">
+                        <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Salva</button>
+                        <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Torna alla lista</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
